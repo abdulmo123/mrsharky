@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mrsharky.Climate.SphericalHarmonic;
+package com.mrsharky.climate.sphericalHarmonic;
 
 import static com.mrsharky.helpers.Utilities.recursiveDelete;
 import java.io.File;
@@ -19,22 +19,22 @@ import static org.junit.Assert.*;
  * @author mrsharky
  */
 public class ClimateFromStationsTest {
-    
+
     public ClimateFromStationsTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -46,13 +46,11 @@ public class ClimateFromStationsTest {
     public void testMain() throws Exception {
         String eofData = "Results/air.sfc.mon.mean.nc_PCA_40.serialized";
         String stationData = "Results/finalStations.serialized";
-      
-        String args = 
-                "--eof \""+ eofData + "\" " +
-                "--station \"" + stationData + "\"";
+
+        String args = "--eof \"" + eofData + "\" " + "--station \"" + stationData + "\"";
         String[] arguments = args.split(" ");
-        
-        //ClimateFromStations.main(arguments);
+
+        // ClimateFromStations.main(arguments);
     }
-    
+
 }
