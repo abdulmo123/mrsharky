@@ -2,8 +2,6 @@
 .classpath
 .project
 org.*
-*.nc
-*.csv
 bin/*
 *.csv~
 *.csz~
