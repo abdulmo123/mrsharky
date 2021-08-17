@@ -151,7 +151,7 @@ public class NetCdfParser {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String timeUnits = dimVar.getUnitsString();
         // Take care of different units we may see
-        if (timeUnits.equals("hours since 1800-1-1 00:00:0.0")) {
+        if (timeUnits.equals("hours since 1800-01-01 00:00:0.0")) {
             String[] splitUnits = timeUnits.split(" ")[2].split("-");
             String year = splitUnits[0];
             String month = StringUtils.leftPad(splitUnits[1], 2, "0");
@@ -169,7 +169,7 @@ public class NetCdfParser {
                 Date currDate = DateUtils.addHours(originDate, additionalHours);
                 dates[counter] = dateFormat.format(currDate);
             }
-        } else if (timeUnits.equals("days since 1800-1-1 00:00:0.0")) {
+        } else if (timeUnits.equals("days since 1800-01-01 00:00:0.0")) {
             String[] splitUnits = timeUnits.split(" ")[2].split("-");
             String year = splitUnits[0];
             String month = StringUtils.leftPad(splitUnits[1], 2, "0");
