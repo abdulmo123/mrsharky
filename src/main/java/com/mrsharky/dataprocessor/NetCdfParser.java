@@ -151,7 +151,8 @@ public class NetCdfParser {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String timeUnits = dimVar.getUnitsString();
         // Take care of different units we may see
-        if (timeUnits.equals("hours since 1800-01-01 00:00:0.0") || timeUnits.equals("hours since 1800-1-1 00:00:0.0")) {
+        if (timeUnits.equals("hours since 1800-01-01 00:00:0.0")
+                || timeUnits.equals("hours since 1800-1-1 00:00:0.0")) {
             String[] splitUnits = timeUnits.split(" ")[2].split("-");
             String year = splitUnits[0];
             String month = StringUtils.leftPad(splitUnits[1], 2, "0");
@@ -169,7 +170,8 @@ public class NetCdfParser {
                 Date currDate = DateUtils.addHours(originDate, additionalHours);
                 dates[counter] = dateFormat.format(currDate);
             }
-        } else if (timeUnits.equals("days since 1800-01-01 00:00:0.0") || timeUnits.equals("days since 1800-1-1 00:00:0.0")) {
+        } else if (timeUnits.equals("days since 1800-01-01 00:00:00.0")
+                || timeUnits.equals("days since 1800-1-1 00:00:00.0")) {
             String[] splitUnits = timeUnits.split(" ")[2].split("-");
             String year = splitUnits[0];
             String month = StringUtils.leftPad(splitUnits[1], 2, "0");
@@ -551,29 +553,29 @@ public class NetCdfParser {
         for (int argsCounter = 0; argsCounter < args.length; argsCounter++) {
             String currArg = args[argsCounter];
             switch (currArg.toUpperCase()) {
-                case "-INPUT":
-                    inputFile = args[++argsCounter];
-                    break;
-                case "-OUTPUT":
-                    outputFile = args[++argsCounter];
-                    break;
-                case "-DATABASEURL":
-                    databaseUrl = args[++argsCounter];
-                    break;
-                case "-DATABASEUSERNAME":
-                    databaseUsername = args[++argsCounter];
-                    break;
-                case "-DATABASEPASSWORD":
-                    databasePassword = args[++argsCounter];
-                    break;
-                case "-VARIABLEOFINTEREST":
-                    variableOfInterest = args[++argsCounter];
-                    break;
-                case "-TIMEVARIABLE":
-                    timeVariable = args[++argsCounter];
-                    break;
-                default:
-                    throw new IllegalArgumentException("Invalid input argument: " + currArg);
+            case "-INPUT":
+                inputFile = args[++argsCounter];
+                break;
+            case "-OUTPUT":
+                outputFile = args[++argsCounter];
+                break;
+            case "-DATABASEURL":
+                databaseUrl = args[++argsCounter];
+                break;
+            case "-DATABASEUSERNAME":
+                databaseUsername = args[++argsCounter];
+                break;
+            case "-DATABASEPASSWORD":
+                databasePassword = args[++argsCounter];
+                break;
+            case "-VARIABLEOFINTEREST":
+                variableOfInterest = args[++argsCounter];
+                break;
+            case "-TIMEVARIABLE":
+                timeVariable = args[++argsCounter];
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid input argument: " + currArg);
             }
         }
 
