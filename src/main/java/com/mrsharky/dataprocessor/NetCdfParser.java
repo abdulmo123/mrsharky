@@ -170,8 +170,9 @@ public class NetCdfParser {
                 Date currDate = DateUtils.addHours(originDate, additionalHours);
                 dates[counter] = dateFormat.format(currDate);
             }
-        } else if (timeUnits.equals("days since 1800-01-01 00:00:00.0")
-                || timeUnits.equals("days since 1800-1-1 00:00:00.0")) {
+        } else if (timeUnits.equals("days since 1800-01-01 00:00:0.0")
+                || timeUnits.equals("days since 1800-1-1 00:00:0.0") || timeUnits.equals("days since 1800-1-1 00:00:00")
+                || timeUnits.equals("days since 1800-01-01 00:00:00")) {
             String[] splitUnits = timeUnits.split(" ")[2].split("-");
             String year = splitUnits[0];
             String month = StringUtils.leftPad(splitUnits[1], 2, "0");
