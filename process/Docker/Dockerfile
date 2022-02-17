@@ -6,9 +6,9 @@ ENV MYSQL_USER=mysql \
     MYSQL_DATA_DIR=/var/lib/mysql \
     MYSQL_RUN_DIR=/run/mysqld \
     MYSQL_LOG_DIR=/var/log/mysql \
-	DEBIAN_FRONTEND=noninteractive \
-	MYSQL_UID=1000 \
-	MYSQL_GID=1000
+    DEBIAN_FRONTEND=noninteractive \
+    MYSQL_UID=1000 \
+    MYSQL_GID=1000
 
 
 # Create mysql group and user 
@@ -18,6 +18,10 @@ RUN useradd -g "${MYSQL_GID}" -u "${MYSQL_UID}" -M -r mysql
 RUN apt-get update
 RUN apt-get install netcdf-bin -y
 RUN apt-get install dos2unix -y
+
+# for GODAS data
+# COPY dbss_obil.nc /var/lib/docker
+# COPY dbss_obil.nc .
 
 ###########################################################
 # Nano (makes debugging easier in container)
@@ -92,7 +96,7 @@ RUN mkdir /var/lib/mysql-files
 EXPOSE 3306
 EXPOSE 80
 EXPOSE 22
-VOLUME ["${MYSQL_DATA_DIR}", "/var/lib/mysql-files", "/climateFiles"]
+VOLUME ["${MYSQL_DATA_DIR}", "/var/lib/mysql-files", "/climateFiles", "var/lib/docker"]
 
 
 

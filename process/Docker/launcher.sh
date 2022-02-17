@@ -13,6 +13,8 @@ MYSQLPASS="abdullahim123"
 MYSQLDATA="/mnt/c/Users/abdul/CSDrive/mrsharky/process/Docker/data"
 MYSQLFILES="/mnt/c/Users/abdul/CSDrive/mrsharky/process/Docker/mysql-files"
 FILES="/mnt/c/Users/abdul/CSDrive/mrsharky/process/Docker/climateFiles"
+# GODAS="/mnt/c/Users/abdul/CSDrive/mrsharky/process/Docker/godas"
+GODAS="/mnt/c/Users/abdul/CSDrive/godas"
 
 # MYSQLDATA="/mnt/SnapDisk_2TB_02/climate/data"
 # MYSQLFILES="/mnt/SnapDisk_2TB_02/climate/mysql-files"
@@ -49,4 +51,5 @@ sudo docker run \
 -v ${MYSQLFILES}:/var/lib/mysql-files \
 -v ${FILES}:/climateFiles \
 -v /etc/localtime:/etc/localtime:ro \
+-v /mnt/c/Users/abdul/CSDrive/godas/thflx.nc:/climateFiles/thflx.nc \
 -i ${IMAGE}

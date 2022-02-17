@@ -10,6 +10,7 @@ DELETEALLDB="TRUE"
 JARLOCATION="/opt/mrsharky-1.0-SNAPSHOT.jar"
 CLASSLOCATION="com.mrsharky.dataprocessor.NetCdfParser"
 #"/climateFiles"
+# DOWNLOADLOCATION=
 
 # mysqldump -u mrsharky_climate -pFakePassword --routines --databases mrsharky_GriddedClimateData > mrsharky_GriddedClimateData.sql
 # mysqldump -u mrsharky_climate -pFakePassword --databases mrsharky_GriddedClimateData > mrsharky_GriddedClimateData.sql
@@ -66,7 +67,14 @@ while IFS=$'\t' read -r DATASETNAME DOWNLOADLOCATION INPUTFILE OUTPUTFILE DATABA
 	echo ""
 	START=$(date +%s)
 
-	wget -c ${DOWNLOADLOCATION} -O $WORKFOLDER/Data/${INPUTFILE}
+	# wget -c /mnt/c/Users/abdul/CSDrive/${DOWNLOADLOCATION} -O $WORKFOLDER/Data/${INPUTFILE}
+	# cp ../climateFiles/dbss_obil.nc $WORKFOLDER/Data/${INPUTFILE}
+	echo "Trying to copy file, here goes"
+	echo "---------------------------------------------------------------------"
+	nccopy ../climateFiles/thflx.nc $WORKFOLDER/Data/${INPUTFILE}
+	echo "Copy was successful!"
+	echo "---------------------------------------------------------------------"
+	# cp /mnt/c/Users/abdul/CSDrive/mrsharky/process/Docker/${DOWNLOADLOCATION} $WORKFOLDER/Data/${INPUTFILE}
 
 	echo ""
 	END=$(date +%s)
